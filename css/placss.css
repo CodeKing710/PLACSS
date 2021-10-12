@@ -1,0 +1,54 @@
+/* GLOBALS */
+:root {
+    --carnelian: #bd1e1eff;
+    --lavender-blush: #ffeaecff;
+    --cadet-blue: #5ab1bbff;
+    --gunmetal: #022f40ff;
+    --deep-saffron: #f19a3eff;
+    --footer-height: 200px;
+}
+
+/* GENERAL PAGE ALIGNMENT */
+* {
+    box-sizing: border-box !important;
+    font-size: 1em;
+    font-family: 'Times New Roman', Times, serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0; padding: 0;
+}
+
+/* WRAPPER ELEMENT LAYOUT */
+wrapper {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+wrapper > * {position: relative;width: 100%;}
+wrapper header {
+    padding: 5px 0;
+    text-align: center;
+}
+wrapper header h1 {
+    font-size: 2.5em;
+}
+wrapper main {
+    flex: 1;
+    padding: 10px;
+}
+/* main {display: flex;} */
+main > * {padding: 2px; margin: 2px;}
+wrapper footer {
+    height: var(--footer-height);
+}
+
+/* GRID, FLEX, & CONTAINER ELEMENT LAYOUT */
+grid {display: grid; gap: 2px;}
+grid > * {justify-self: stretch; align-self: stretch;}
+flex {display: flex;}
+container {display: block;}
+spacer {display: inline-block;}
+
+/* Predefined classes */
+.absolute {position: absolute; top: 0; left: 0;}
