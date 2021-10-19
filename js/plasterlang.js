@@ -7,8 +7,8 @@
  * This includes CSS functions and HTML attribute mutators
  */
  function plasterInstall(){
-    plaster = document.querySelectorAll('script[type=plaster]');
-    for(var i = 0; i < plaster.length; i++) {
+    let plaster = document.querySelectorAll('plaster');
+    for(let i = 0; i < plaster.length; i++) {
         eval(LEX_PLASTER(plaster[i].innerText));
     }
 }
@@ -21,3 +21,8 @@ function LEX_PLASTER(src) {
 
 //Add to dependency list (MUST HAVE INCLUDED dependency_factory.js)
 addDeps(true,plasterInstall);
+
+class PlasterEngine {
+    constructor() {}
+
+}

@@ -8,7 +8,14 @@ function placss() {
     gridContainers();
     fitContent();
     spacers();
-    document.body.addEventListener("resize",fitContent);
+    fixNavs();
+    window.addEventListener("resize",function() {
+        fitContent();
+        fixNavs();
+    });
+    window.addEventListener("scroll",function() {
+        stickyNav();
+    });
 }
 
 /**PRIVATE FUNCTIONS */
@@ -231,6 +238,33 @@ function spacers() {
         }
     }
 }
+function fixNavs() {
+    let items = document.querySelectorAll('nav > container > item');
+    items.forEach(function(item){
+        item.style.width = `${100/items.length}%`;
+    });
+
+    let nav = document.querySelectorAll('nav.submenus')[0];
+    let headerHeight = document.querySelectorAll('header')[0].offsetHeight;
+    if(nav !== null) {
+        nav.style.top = `${headerHeight}px`;
+        document.querySelectorAll('main')[0].style.paddingTop = `${headerHeight}px`;
+    }
+}
+function stickyNav() {
+    let nav = document.querySelectorAll('nav')[0];
+    let headerHeight = document.querySelectorAll('header')[0].offsetHeight;
+    // console.log(document.body.scrollTop || document.documentElement.scrollTop);
+
+    if(document.body.scrollTop >= headerHeight || document.documentElement.scrollTop >= headerHeight) {
+        nav.style.position = "fixed";
+        nav.style.top = 0;
+    } else {
+        nav.style.position = "absolute";
+        nav.style.top = `${headerHeight}px`;
+    }
+}
+
 
 //Add dependency to list
 addDeps(true, placss);
